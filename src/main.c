@@ -1,16 +1,19 @@
 #include <stdio.h>
 #include "fonts.h"
 
-int len(char* txt) { int i = 0; while(txt[i] != '\0') i+= txt[i]==' ' ? 3 : 1; return i/3; }
+char* space = " ";
+
+void prt(Font font, char* txt) {
+    for (int i = 0; i < font.charHeight; i++) {
+        int t = 0;
+        while (txt[t] != '\0') { printf("%s%s", font.chars[txt[t]][i], space); t++; }
+        printf("\n");
+    }
+}
 
 int main() {
     Font font = doubleFrame;
-    char c = 'A';
-    for (int i = 0; i < font.charHeight; i++) {
-        printf("%s", font.chars[c][i]);
-        int l = len(font.chars[c][i]);
-        for (int j = 0; j < font.charWidth-l; j++) printf(" ");
-        printf("| %i\n", l);
-    }
+    char* txt = "HELLO";
+    prt(font, txt);
     return 0;
 }
