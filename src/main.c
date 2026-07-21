@@ -13,7 +13,7 @@ void prt(Font font, char* txt) {
 
 int main() {
     Font font = doubleFrame;
-    char* txt = "HELLO";
+    char* txt = "QGPU";
     prt(font, txt);
     return 0;
 }
